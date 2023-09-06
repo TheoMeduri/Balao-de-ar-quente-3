@@ -95,7 +95,7 @@ function draw() {
 
 //condição para o estado END (FIM)
 //Escreva uma condição para o balão tocar os obstáculos(bottomObstaclesGroup,topGround,bottomGround,topObstaclesGroup)
-if(topObstaclesGroup.isTouching(balloon) || ballon.isTouching(topGround) 
+if(topObstaclesGroup.isTouching(balloon) || balloon.isTouching(topGround) 
   || balloon.isTouching(bottomGround) || bottomObstaclesGroup.isTouching(balloon)
 {
 
