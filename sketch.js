@@ -95,11 +95,12 @@ function draw() {
 
 //condição para o estado END (FIM)
 //Escreva uma condição para o balão tocar os obstáculos(bottomObstaclesGroup,topGround,bottomGround,topObstaclesGroup)
-if()
+if(topObstaclesGroup.isTouching(balloon) || ballon.isTouching(topGround) 
+  || balloon.isTouching(bottomGround) || bottomObstaclesGroup.isTouching(balloon)
 {
 
 gameState = END;
-
+dieSound.play();
 }
   }
 
@@ -137,12 +138,13 @@ gameState = END;
 
 function reset()
 {
-  //Altere o gameState para jogar
-  //Desative o botão gameOver e reinicie
-  //Destrua o topObstaclesGrupo e o bottomObstaclesGroup
- 
 
-  score=0;
+ gameState = PLAY;
+ gameOver.visible = false;
+ restart.visible = false;
+ topObstaclesGroup.destroyEach();
+ bottomObstaclesGroup.destroyEach();
+ score=0;
 }
 
 
@@ -237,12 +239,13 @@ function Score()
          if(balloon.isTouching(barGroup))
          {
            //aumentar a pontuação em 1
+           score = score+1;
          }
         textFont("algerian");
         textSize(30);
         fill("yellow");
         //Exibir a pontuação 
-       
+       text("Pontos" + score, 250,50);
   
 }
 
